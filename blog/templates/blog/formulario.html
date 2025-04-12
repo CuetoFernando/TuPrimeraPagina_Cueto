@@ -2,10 +2,20 @@
 
 {% block contenido %}
 <h2 class="mb-3">{{ titulo }}</h2>
+
 <form method="post" class="border p-4 rounded shadow-sm bg-light">
   {% csrf_token %}
+
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+      {{ form.non_field_errors }}
+    </div>
+  {% endif %}
+
   {{ form.as_p }}
+
   <button type="submit" class="btn btn-primary mt-3">Guardar</button>
 </form>
 {% endblock %}
+
 

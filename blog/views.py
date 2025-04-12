@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import AutorForm, CategoriaForm, PostForm, BuscarPostForm
-from .models import Post
+from .models import Post, Autor
+
 
 # ------------------------BASE-----------------------------------------------------
 def inicio(request):
@@ -12,9 +13,23 @@ def crear_autor(request):
     if request.method == 'POST':
         form = AutorForm(request.POST)
         if form.is_valid():
-            form.save()
+            # Obtener los datos del formulario
+            nombre = form.cleaned_data['nombre']
+            apellido = form.cleaned_data['apellido']
+            email = form.cleaned_data['email']
+            
+            # Verificar si el autor ya existe en la base de datos
+            if Autor.objects.filter(nombre=nombre, apellido=apellido, email=email).exists():
+                # Si el autor existe, se agrega un error al formulario
+                form.add_error(None, "Este autor ya existe en la base de datos.")
+            else:
+                # Si no existe, se guarda el autor
+                form.save()
+                return render(request, 'blog/inicio.html', {'mensaje': 'Autor creado con éxito.'})
+
     else:
         form = AutorForm()
+
     return render(request, 'blog/formulario.html', {'form': form, 'titulo': 'Crear Autor'})
 
 
