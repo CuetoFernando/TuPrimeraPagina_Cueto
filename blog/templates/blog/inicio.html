@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block contenido %}
+<h2 class="mb-4">Últimos Posts</h2>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  {% for post in posts %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.titulo }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ post.autor }} — {{ post.fecha|date:"d/m/Y" }}</h6>
+          <p class="card-text">{{ post.contenido|truncatechars:100 }}</p>
+        </div>
+        <div class="card-footer text-end">
+          <a href="#" class="btn btn-sm btn-outline-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p>No hay publicaciones aún.</p>
+  {% endfor %}
+</div>
+{% endblock %}
