@@ -35,6 +35,9 @@
 2. Mensajes de éxito o error en las vistas de creación de autores, categorías y posts
 3. Mensaje de bienvenida en la vista de inicio de la página web
 4. Acceso a cada post desde la vista de búsqueda de posts por título
+5. Creación de un superusuario para acceder al panel de administración de Django
+6. Creacion de filtros en el panel de administración de Django para buscar posts por autor, categoría y fecha de publicación
+
 
 ## Orden de prueba
 
