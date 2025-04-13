@@ -12,7 +12,11 @@
   <ul class="list-group">
     {% for post in resultados %}
       <li class="list-group-item">
-        <strong>{{ post.titulo }}</strong> — <em>{{ post.autor }}</em>
+        <strong>
+          <a href="{% url 'detalle_post' post.id %}" class="text-decoration-none">
+            {{ post.titulo }}
+          </a>
+        </strong> — <em>{{ post.autor }}</em>
         <br>
         <small>{{ post.fecha|date:"d/m/Y H:i" }}</small>
       </li>

@@ -30,6 +30,12 @@
 3. Crear posts de blog de una página web con autor y categoría (claves foráneas) 
 4. Buscar posts por título de blog de una página web 
 
+## Funcionalidades extra Agreagdos con ramas de GitHub 
+1. Validaciones en los formularios de creación de autores, categorías y posts (evitar duplicados)
+2. Mensajes de éxito o error en las vistas de creación de autores, categorías y posts
+3. Mensaje de bienvenida en la vista de inicio de la página web
+4. Acceso a cada post desde la vista de búsqueda de posts por título
+
 ## Orden de prueba
 
 1. Crear autores
