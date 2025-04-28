@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card p-4">
+            <h2 class="card-title">{{ post.titulo }}</h2>
+            <p class="card-subtitle mb-3" style="color: #aaa; font-weight: bold; font-size: 1.1rem;">
+                Categoría: {{ post.categoria.nombre }}
+            </p>
+            <p class="card-text">{{ post.contenido }}</p>
+            <p class="mt-3 text-end"><em>Autor: {{ post.autor.nombre }} {{ post.autor.apellido }}</em></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

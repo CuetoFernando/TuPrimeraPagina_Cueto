@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card p-4 mb-4 text-center">
+            <h2 class="mb-0">Buscar Páginas</h2>
+        </div>
+
+        <form method="get" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Buscar por título, subtítulo o contenido..." value="{{ query|default_if_none:'' }}">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
+
+        {% if resultados is not None %}
+            {% if resultados %}
+                <div class="list-group">
+                    {% for page in resultados %}
+                        <a href="{% url 'page_detail' page.pk %}" class="list-group-item list-group-item-action mb-2">
+                            <h5 class="mb-1">{{ page.title }}</h5>
+                            <p class="mb-1">{{ page.content|truncatewords:20 }}</p>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-center">No se encontraron resultados para "{{ query }}".</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card p-5 text-center">
+            <h1 class="mb-4">¿Cómo Funciona?</h1>
+            <p class="lead mb-4">
+                En esta plataforma podés interactuar de las siguientes maneras:
+            </p>
+            <ul class="list-group list-group-flush text-start mb-4">
+                <li class="list-group-item bg-transparent text-white">
+                    <strong>Pages:</strong> Creá y compartí páginas personales o de contenido libre. Solo vos podrás editar y eliminar tus propias páginas.
+                </li>
+                <li class="list-group-item bg-transparent text-white">
+                    <strong>Blog:</strong> Publicá artículos. Cada usuario registrado se convierte automáticamente en autor. Podés crear, buscar y consultar tus propios posts.
+                </li>
+                <li class="list-group-item bg-transparent text-white">
+                    <strong>Mensajería:</strong> Comunicáte con otros usuarios de manera privada mediante la bandeja de entrada y mensajes enviados.
+                </li>
+                <li class="list-group-item bg-transparent text-white">
+                    <strong>Perfil:</strong> Accedé y gestioná tu información de usuario desde tu perfil.
+                </li>
+            </ul>
+            <a href="{% url 'home' %}" class="btn btn-primary">Volver al Inicio</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

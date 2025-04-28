@@ -16,8 +16,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from apps.blog import views as blog_views
+from apps.pages import views as pages_views
+from apps.accounts import views as accounts_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include ('blog.urls')),
+    path('', blog_views.home, name='home'),
+    path('about/', blog_views.about, name='about'),
+    path('pages/', include('apps.pages.urls')),
+    path('profile/', accounts_views.profile_view, name='profile'),
+    path('logout/', accounts_views.logout_view, name='logout'),
+    path('login/', accounts_views.CustomLoginView.as_view(), name='login'),
+    path('signup/', accounts_views.signup, name='signup'),
+    path('blog/', include('apps.blog.urls')),  # SOLO ESTA línea para blog
+    path('accounts/', include('apps.accounts.urls')),
+    path('messenger/', include('apps.messenger.urls')),
+    path('como_funciona/', blog_views.como_funciona, name='como_funciona'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

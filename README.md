@@ -1,5 +1,8 @@
 # TuPrimeraPagina_Cueto
-3ra PreEntrega CoderHouse_Python 
+4ra PreEntrega CoderHouse_Python 
+
+Esta es una aplicación web tipo blog creada en Django, que incluye funcionalidades de creación de Posts, Pages, autenticación de usuarios, perfiles personalizados, mensajería privada entre usuarios y control de permisos.
+Permite la interacción entre usuarios registrados, y la administración total desde el panel de Django para superusuarios.
 
 ## Creación del Repositorio y Proyecto
 
@@ -10,40 +13,47 @@
 5. Activamos el entorno virtual (.\venv\Scripts\activate)
 6. instalamos Django (pip install django)
 7. Creamos el proyecto (django-admin startproject TuPrimeraPagina_Cueto)
-8. Creamos la app blog (python manage.py startapp blog)
-9. Agregamos la app blog en settings.py
-10. Creamos las clases Autor, Categoria y Post en models.py de la app blog
-11. Creamos las vistas en views.py de la app blog (index, crear_autor, crear_categoria, crear_post, buscar_post)
-12. Creamos las urls en urls.py de la app blog
-13. Creamos las urls en urls.py del proyecto TuPrimeraPagina_Cueto
-14. Creamos los templates en la carpeta templates de la app blog
-15. Creamos los formularios en forms.py de la app blog
-16. Creamos los archivos de imágenes fijas en la carpeta static
-17. Creamos el archivo README.md
-18. Hacemos el primer commit y push al repositorio en GitHub (git add ., git commit -m "mensaje", git push)
+8. Creamos las app blog, account, messenger y pages (python manage.py startapp blog)
+9. Configuramos settings.py, urls.py generales y de apps.
+10. Se crean modelos (Autor, Categoría, Post, Page, Message, Profile).
+11. Se crean formularios personalizados (forms.py)
+12. Se Crean vistas basadas en funciones (FBV) y clases (CBV).
+13. Se desarrollar templates y herencia desde base.html.
+14. Incorporamos validaciones, permisos, autenticaciones, y control de sesiones.
 
 
 ## Funcionalidades
 
-1. Crear autores de posts de blog de una página web
-2. Crear categorías de posts de blog de una página web
-3. Crear posts de blog de una página web con autor y categoría (claves foráneas) 
-4. Buscar posts por título de blog de una página web 
+1. Home: Página de inicio personalizada según estado de login.
+2. About: Información personal pública del creador de la web.
+3. Pages: Listado, creación, búsqueda, edición y borrado de páginas (solo propios).
+4. Crear posts de blog de una página web con autor y categoría (claves foráneas) 
+4. Blog: Ver posts, buscar posts, crear posts (autogeneración de autor), editar y borrar posts (solo Admin).
+5. Mensajes: Bandeja de entrada, mensajes enviados, enviar y responder mensajes.
+6. Perfiles: Ver y editar datos del usuario, cambiar contraseña.
+7. Autenticación: Registro, login y logout.
+8. Administrador: Panel de Django mejorado con filtros por autor, categoría, fecha.
 
-## Funcionalidades extra Agreagdos con ramas de GitHub 
-1. Validaciones en los formularios de creación de autores, categorías y posts (evitar duplicados)
-2. Mensajes de éxito o error en las vistas de creación de autores, categorías y posts
-3. Mensaje de bienvenida en la vista de inicio de la página web
-4. Acceso a cada post desde la vista de búsqueda de posts por título
-5. Creación de un superusuario para acceder al panel de administración de Django
-6. Creacion de filtros en el panel de administración de Django para buscar posts por autor, categoría y fecha de publicación
-
+## Funcionalidades extra Agreagdos 
+1. Autoasignación de autor al crear posts si no existe
+2. Navbar dinámica: cambia según si el usuario está logueado o es admin.
+3. Sistema de mensajería funcional entre usuarios.
+4. Control de permisos: Solo el creador puede editar/borrar sus Pages. Solo admins pueden eliminar Posts.
+5. Editor de texto enriquecido para Posts y Pages usando CKEditor.
+6. Buscador avanzado en Pages y Posts (por título, categoría y autor).
+7. Mensajes Flash en todas las operaciones (crear, editar, borrar).
+8. Protección de archivos estáticos mediante .gitignore.
 
 ## Orden de prueba
 
-1. Crear autores
-2. Crear categorías
-3. Crear posts (elige un autor y una categoría)
-4. Probar búsqueda con parte del título del post
+1. Registrarse como nuevo usuario o ingresar como admin.
+2. Crear una nueva Página.
+3. Buscar y leer una Página.
+4. Crear un nuevo Post (el sistema generará el autor automáticamente).
+5. Buscar posts por título, categoría o autor.
+6. Enviar y recibir mensajes entre usuarios.
+7. Modificar datos del perfil, incluyendo avatar.
+8. (Como Admin) eliminar un post desde el listado de Posts.
+9. (Opcional) acceder al panel /admin para gestión directa.
 
 

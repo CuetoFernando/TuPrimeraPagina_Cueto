@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card p-4 text-center">
+            {% if page.image %}
+                <div class="d-flex justify-content-center mb-4">
+                    <img src="{{ page.image.url }}" 
+                        alt="{{ page.title }}"
+                        style="width: 300px !important; height: auto !important; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+
+                </div>
+            {% endif %}
+            <h2 class="card-title mb-4">{{ page.title }}</h2>
+            <div class="card-text text-start">
+                {{ page.content|safe }}
+            </div>
+            <div class="mt-4">
+                <a href="{% url 'pages_list' %}" class="btn btn-secondary">Volver al listado</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

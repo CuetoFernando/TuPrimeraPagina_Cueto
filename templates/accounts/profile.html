@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4 text-center">
+            <div class="d-flex justify-content-center mb-3">
+                <img src="{% if profile.avatar %}{{ profile.avatar.url }}{% else %}{% static 'img/default_avatar.png' %}{% endif %}" 
+                     class="rounded-circle img-fluid" 
+                     style="width: 150px; height: 150px; object-fit: cover;" 
+                     alt="Avatar">
+            </div>
+            <h2 class="mb-3">{{ user.first_name }} {{ user.last_name }}</h2>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            {% if profile.bio %}
+                <p><strong>Biografía:</strong> {{ profile.bio }}</p>
+            {% endif %}
+            {% if profile.birth_date %}
+                <p><strong>Fecha de nacimiento:</strong> {{ profile.birth_date }}</p>
+            {% endif %}
+
+            <div class="mt-4">
+                <a href="{% url 'profile_edit' %}" class="btn btn-primary">Editar Perfil</a>
+                <a href="{% url 'password_change' %}" class="btn btn-warning">Cambiar Contraseña</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+

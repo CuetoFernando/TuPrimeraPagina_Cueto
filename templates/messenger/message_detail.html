@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card p-4">
+            <h2 class="text-center mb-4">Detalle del Mensaje</h2>
+
+            <p><strong>De:</strong> {{ message.sender.username }}</p>
+            <p><strong>Asunto:</strong> {{ message.subject }}</p>
+            <p><strong>Enviado el:</strong> {{ message.created_at|date:"d/m/Y H:i" }}</p>
+
+            <hr>
+
+            <p><strong>Contenido:</strong></p>
+            <p>{{ message.body }}</p>
+
+            <hr>
+
+            <div class="text-center">
+                <a href="{% url 'send_message' %}?to={{ message.sender.username }}" class="btn btn-primary">Responder</a>
+                <a href="{% url 'inbox' %}" class="btn btn-secondary">Volver a la Bandeja de Entrada</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
